@@ -75,7 +75,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'get_query_example.urls'
+ROOT_URLCONF = 'django_getquery.urls'
 
 TEMPLATE_DIRS = (
 	'templates',
@@ -87,5 +87,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'get_query_example.demo'
+    'django_getquery.demo'
 )

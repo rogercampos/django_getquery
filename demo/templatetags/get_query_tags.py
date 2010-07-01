@@ -3,7 +3,7 @@ from django import template
 from django.template import TemplateSyntaxError, VariableDoesNotExist
 from django.http import QueryDict
 
-from get_query_example.demo.get_query import GetQuery
+from django_getquery.demo.get_query import GetQuery
 
 
 register = template.Library()

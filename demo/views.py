@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from get_query_example.demo.get_query import GetQuery
+from django_getquery.demo.get_query import GetQuery
 
 
 def index(request):
