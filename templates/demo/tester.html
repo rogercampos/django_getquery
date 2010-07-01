@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load get_query_tags %}
+
+{% block content %}
+<p>Demostration of all possible sintaxis you can use with the {{ "{% gurl %}"|safe }} command.</p>
+
+<ul>
+<li>
+Clean and simple: Generate a link with the current parameters.
+	<ul>
+		<li><a href="{% gurl gq %}">Link example</a></li>
+		<li>Code: {{ "{% gurl gq %}"|safe}}</li>
+		<li>Link result: {% gurl gq %}</li>
+	</ul>
+</li>
+
+<li>
+Modify one parameter and add another one, the others key value pairs in the url remain the same.
+	<ul>
+		<li><a href="{% gurl gq 'a:55,new_key:anotherValue' %}">Link example</a></li>
+		<li>Code: {{ "{% gurl gq 'a:55,new_key:anotherValue' %}"|safe}}</li>
+		<li>Link result: {% gurl gq 'a:55,new_key:anotherValue' %}</li>
+	</ul>
+</li>
+
+<li>
+Modify one parameter and add another one that already exists on the same key, with the fixed syntax '$'
+	<ul>
+		<li><a href="{% gurl gq 'a:55,$b:42' %}">Link example</a></li>
+		<li>Code: {{ "{% gurl gq 'a:55,$b:42' %}"|safe}}</li>
+		<li>Link result: {% gurl gq 'a:55,$b:42' %}</li>
+	</ul>
+</li>
+
+<li>
+Work with the same key combining fixed and non-fixed syntax. The non-fixed value will update the URL captured one, while the fixed value will be added no matter what.
+	<ul>
+		<li><a href="{% gurl gq 'a:55,$a:33' %}">Link example</a></li>
+		<li>Code: {{ "{% gurl gq 'a:55,$a:33' %}"|safe}}</li>
+		<li>Link result: {% gurl gq 'a:55,$a:33' %}</li>
+	</ul>
+</li>
+
+<li>
+Working with variable resolution within given context. A 'foo=[11,22,33,44,55]' variable was passed from the view, so the following is valid.
+	<ul>
+		<li><a href="{% gurl gq 'a:foo.1,$b:foo.3' %}">Link example</a></li>
+		<li>Code: {{ "{% gurl gq 'a:foo.1,$b:foo.3' %}"|safe}}</li>
+		<li>Link result: {% gurl gq 'a:foo.1,$b:foo.3' %}</li>
+	</ul>
+</li>
+
+</ul>
+
+<a href="{% url index %}">Back</a>
+
+{% endblock %}

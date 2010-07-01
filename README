@@ -1,0 +1,12 @@
+This piece of code pretends to be a general way to work comfortable with GET parameters in Django. It supports the multi-value behaviour for the same key that some HTML entities have (<select multiple="multiple"> for instance), and can resolve the given values within the actual context.
+
+This is a working Django example you can execute to get a quick preview, but the core files are demo/get_query.py and demo/templatetags/get_query_tags.py
+
+
+
+TODO
+====
+- Make variable resolution compatible with other built-in tags like for, to make valid something like:
+			{% for x in foo %}
+				<a href="{% gurl gq 'a:x' %}">Link example</a><br />
+			{% endfor %}

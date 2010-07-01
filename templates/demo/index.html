@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Demo site to show you some of the GetQuery functionalities. Click on the links below to play around and take a look at the source code.</p>
+<ul>
+<li><a href="{% url tester %}?a=1&b=2">Example 1</a></li>
+<li><a href="{% url tester %}?a=25&a=65">Example 2</a></li>
+<li><a href="{% url tester %}?a=25&a=65&b=2&c=3&c=4">Example 3</a></li>
+
+</ul>
+{% endblock %}
